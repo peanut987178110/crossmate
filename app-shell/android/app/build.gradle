@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+// Chaquopy：把 Python 运行时 + backend 打进 APK，App 在手机本地即可跑完整后端（离线可用）
+apply plugin: 'com.chaquo.python'
+
+android {
+    namespace "app.crossmate.demo"
+    compileSdk rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "app.crossmate.demo"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // 只打 64 位 ARM（主流真机）与 x86_64（模拟器），体积减半
+            abiFilters "arm64-v8a", "x86_64"
+        }
+
+        python {
+            buildPython "python"          // 构建期用本机 Python 跑 pip / 打包字节码
+            version "3.12"
+            // 必须显式指定 3.12：Chaquopy 不指定时会退回 3.8，而后端代码用了
+            // `list[str] | None` 这类 3.9/3.10 才支持的写法（pydantic 解析注解时会求值）。
+            // ⚠️ 3.12 的 buildPython 需与设备 Python 版本一致才能编译 .pyc（否则只打源码，功能不受影响）。
+            // Python 3.12 在 Android 上没有 pydantic-core（Rust）轮子，退回纯 Python 的 pydantic 1.x；
+            // 业务代码已用 util.as_dict() 兼容 v1/v2，两种版本 57 个测试均通过。
+            pip {
+                install "fastapi"
+                install "pydantic<2"
+                install "uvicorn"
+            }
+        }
+
+        aaptOptions {
+             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+            ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'
+
+try {
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.text) {
+        apply plugin: 'com.google.gms.google-services'
+    }
+} catch(Exception e) {
+    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}

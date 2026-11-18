@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CrossMate</string>
+    <string name="title_activity_main">CrossMate</string>
+    <string name="package_name">app.crossmate.demo</string>
+    <string name="custom_url_scheme">app.crossmate.demo</string>
+</resources>

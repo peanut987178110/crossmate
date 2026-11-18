@@ -1,0 +1,7 @@
+# Playwright 端到端 + 可点性测试。
+# 装完还要下载浏览器：python -m playwright install chromium
+# 需要 Python 3.10+；E2E 会以子进程拉起 backend，所以 backend 的依赖也要装。
+fastapi>=0.110
+httpx>=0.27
+pytest>=8.0
+playwright>=1.40

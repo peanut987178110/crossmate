@@ -1,0 +1,42 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# ---- 运行时数据（每次启动自动重建，含演示数据）----
+backend/data/*.db
+backend/data/*.db-shm
+backend/data/*.db-wal
+
+# ---- 前端 ----
+# web/ 是手写源码，没有构建产物，无需忽略
+
+# ---- Node / Capacitor ----
+node_modules/
+app-shell/node_modules/
+app-shell/www/          # 由 app-shell/scripts/sync-web.mjs 从 web/ 生成
+app-shell/android/.gradle/
+app-shell/android/build/
+app-shell/android/app/build/
+# 注意：capacitor-cordova-android-plugins/ 本身要被 settings.gradle 引用，不能整目录忽略，
+# 只忽略里面的构建产物（下面这条）
+app-shell/android/capacitor-cordova-android-plugins/build/
+app-shell/android/local.properties      # 含本机 SDK 路径，每台电脑不同
+
+# ---- 安卓打包时由 sync-web.mjs 从 backend/app 同步而来，不提交 ----
+app-shell/android/app/src/main/python/app/
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# ---- 日志 ----
+*.log
+npm-debug.log*

@@ -1,0 +1,23 @@
+[
+  {
+    "doc_id": "rules_ai_scope_001",
+    "title": "AI 工具边界",
+    "status": "approved",
+    "lang": "zh",
+    "expires_at": "2027-12-31",
+    "chunks": [
+      {"chunk_id": "c1", "text": "AI 只给建议 不自动发送 不代替用户 不冒充真人"},
+      {"chunk_id": "c2", "text": "推荐只使用兴趣、语言、时区、社交目标、活跃度；积分和敏感属性不参与排序。"}
+    ]
+  },
+  {
+    "doc_id": "rules_points_001",
+    "title": "积分规则",
+    "status": "approved",
+    "lang": "en",
+    "expires_at": "2027-12-31",
+    "chunks": [
+      {"chunk_id": "c1", "text": "points are not cash and never affect recommendation ranking or matchmaking"}
+    ]
+  }
+]

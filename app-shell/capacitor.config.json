@@ -1,0 +1,14 @@
+{
+  "appId": "app.crossmate.demo",
+  "appName": "CrossMate",
+  "webDir": "www",
+  "android": {
+    "webContentsDebuggingEnabled": true,
+    "allowMixedContent": true
+  },
+  "server": {
+    "hostname": "localhost",
+    "androidScheme": "http",
+    "cleartext": true
+  }
+}

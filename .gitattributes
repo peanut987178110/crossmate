@@ -1,0 +1,11 @@
+# 统一用 LF 存储、按各平台习惯检出（换电脑 / 换系统打包时不至于把 gradlew、.mjs 改成 CRLF）
+* text=auto
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+gradlew text eol=lf
+*.mjs text eol=lf
+*.png binary
+*.apk binary
+*.db binary

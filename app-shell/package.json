@@ -1,0 +1,19 @@
+{
+  "name": "crossmate-app",
+  "version": "0.2.0",
+  "private": true,
+  "description": "CrossMate native shell (Capacitor)",
+  "scripts": {
+    "sync:web": "node scripts/sync-web.mjs",
+    "add:android": "npx cap add android",
+    "sync": "npm run sync:web && npx cap sync android",
+    "apk": "npm run sync && cd android && gradlew.bat assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/core": "^6.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  }
+}

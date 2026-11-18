@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#15111f">
+<!-- 首帧底色：CSS 还没加载/解析完时浏览器先画这一层，避免 App 冷启动闪一下白 -->
+<style>html,body{background:#0d0a13}</style>
+<!-- 原生壳用：外壳启动时写入后端地址；浏览器里保持为空=同源 -->
+<meta name="cm-api" content="">
+<title>CrossMate · Find a little moment</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="phone">
+  <div id="statusbar"><span id="clock">9:41</span><span>▮▮▮ 5G ▰</span></div>
+  <main id="view" aria-live="polite"></main>
+  <nav id="tabbar" hidden>
+    <button data-tab="home"><b>⌂</b><span>Home</span></button>
+    <button data-tab="discover"><b>⌕</b><span>Discover</span></button>
+    <button data-tab="rooms"><b>◉</b><span>Rooms</span></button>
+    <button data-tab="chats"><b>✉</b><span>Chats</span></button>
+    <button data-tab="me"><b>◎</b><span>Me</span></button>
+  </nav>
+  <div id="toast" role="status" aria-live="assertive"></div>
+  <div id="modal" hidden></div>
+</div>
+<aside id="devpanel">
+  <h3>CrossMate 演示台</h3>
+  <p class="muted">API: <code id="apiurl"></code></p>
+  <label><input type="checkbox" id="reduced-motion"> 减少动态效果</label>
+  <label><input type="checkbox" id="data-saver"> 节省流量</label>
+  <div class="row"><button id="switch-user">切换演示账号</button><button id="demo-run">▶ 一键演示主流程</button></div>
+  <div class="row"><button id="seed-btn">重置演示数据</button><a href="/docs" target="_blank">API 文档</a></div>
+  <div id="devlog" class="muted"></div>
+  <p class="muted tip">提示：Accounts 切换后会自动完成资料。Rooms 里可用主持人账号举手/禁言。</p>
+</aside>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

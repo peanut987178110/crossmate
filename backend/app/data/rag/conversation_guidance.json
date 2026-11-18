@@ -1,0 +1,65 @@
+[
+  {
+    "doc_id": "io_culture_ng_001",
+    "title": "Indonesia: small talk in group voice rooms",
+    "status": "approved",
+    "lang": "en",
+    "expires_at": "2027-06-30",
+    "chunks": [
+      {"chunk_id": "c1", "text": "indonesia voice room group small talk music food togetherness low pressure"},
+      {"chunk_id": "c2", "text": "In many Indonesian communities group voice rooms are informal; asking about music or food is usually comfortable."}
+    ]
+  },
+  {
+    "doc_id": "me_culture_001",
+    "title": "Middle East: voice rooms and mixed-gender settings",
+    "status": "approved",
+    "lang": "en",
+    "expires_at": "2027-06-30",
+    "chunks": [
+      {"chunk_id": "c1", "text": "middle east voice room mixed gender privacy family honor cautious tone"},
+      {"chunk_id": "c2", "text": "Preferences vary greatly by family and country; never assume from nationality, offer choices instead."}
+    ]
+  },
+  {
+    "doc_id": "latam_culture_001",
+    "title": "LATAM: energetic small talk",
+    "status": "approved",
+    "lang": "en",
+    "expires_at": "2027-06-30",
+    "chunks": [
+      {"chunk_id": "c1", "text": "latam music football food warm expressive small talk"}
+    ]
+  },
+  {
+    "doc_id": "cn_culture_001",
+    "title": "跨文化礼貌用语",
+    "status": "approved",
+    "lang": "zh",
+    "expires_at": "2027-06-30",
+    "chunks": [
+      {"chunk_id": "c1", "text": "跨文化交流 礼貌 避免 刻板印象 国籍 性格"},
+      {"chunk_id": "c2", "text": "不要根据国籍推断性格或价值观；用开放式问题替代假设。"}
+    ]
+  },
+  {
+    "doc_id": "old_culture_draft_001",
+    "title": "Draft: country personality cheat sheet (DO NOT USE)",
+    "status": "draft",
+    "lang": "en",
+    "expires_at": "2027-06-30",
+    "chunks": [
+      {"chunk_id": "c1", "text": "indonesia people are shy japanese people are polite country personality"}
+    ]
+  },
+  {
+    "doc_id": "expired_culture_001",
+    "title": "Expired：国籍性格对照表（已过期，不得召回）",
+    "status": "approved",
+    "lang": "zh",
+    "expires_at": "2026-01-01",
+    "chunks": [
+      {"chunk_id": "c1", "text": "国籍 性格 对照 中国 内向 美国 外向 music food"}
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+# 安卓壳工具（smoke_android.py / check_lang_device.py）的依赖。
+# 这两个脚本通过 WebView 的 Chrome DevTools Protocol 驱动真实 App，
+# 协议是 WebSocket，所以需要 websocket-client（注意不是 websockets）。
+websocket-client>=1.7
