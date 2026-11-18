@@ -1,4 +1,4 @@
-# 统一用 LF 存储、按各平台习惯检出（换电脑 / 换系统打包时不至于把 gradlew、.mjs 改成 CRLF）
+# 按平台检出：脚本保留各自行尾，二进制文件标记为 binary
 * text=auto
 *.bat text eol=crlf
 *.cmd text eol=crlf
